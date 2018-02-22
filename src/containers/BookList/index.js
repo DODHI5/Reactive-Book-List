@@ -1,17 +1,17 @@
 import React from "react";
 import BookListItem from "../../components/BookListItem";
-const BookList = ({ books, findBook }) => {
+const BookList = ({ books, search }) => {
   return (
     <div>
       {books
-        // .filter(book => {
-        //   console.log(findBook);
-        //   console.log(book.title.indexOf(findBook));
-        //   return (
-        //     book.title.indexOf(findBook) >= 0 ||
-        //     book.author.indexOf(findBook) >= 0
-        //   );
-        // })
+        .filter(book => {
+          console.log(search);
+          console.log(book.title.indexOf(search));
+          return (
+            book.title.indexOf(search) !== -1 ||
+            book.author.indexOf(search) !== -1
+          );
+        })
         .map(book => {
           return (
             <BookListItem
